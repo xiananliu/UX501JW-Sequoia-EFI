@@ -14,6 +14,7 @@
 | Wi-Fi | 内置 Intel 网卡 ✅ **原生菜单栏 UI + 锁屏自动连接**(AirportItlwm) |
 | 蓝牙 | ✅ IntelBluetoothFirmware + BlueToolFixup |
 | 声卡 | ✅ AppleALC,layout-id 3(boot-arg alcid=27) |
+| 隐私权限 | ✅ **AMFIPass 1.4.1**, 第三方 App 正常弹窗申请摄像头/麦克风权限 |
 | 电池/亮度/USB/读卡器 | ✅ SMCBatteryManager / BrightnessKeys+PNLF / USBToolBox / Sinetek-rtsx |
 | 开机画面 | ✅ 标准 Apple 标志+进度条(已关闭 verbose 跑码) |
 
@@ -27,7 +28,7 @@ EFI/
 └── OC/
     ├── ACPI/                 # 10 个 SSDT(含 SSDT-Disable_GPU_PEG0 屏蔽独显)
     ├── Drivers/              # OpenRuntime / HfsPlus / OpenCanopy / ResetNvramEntry
-    ├── Kexts/                # 21 个内核驱动(见下表)
+    ├── Kexts/                # 22 个内核驱动(见下表)
     ├── Resources/            # OpenCanopy 主题资源
     └── config.plist          # 主配置(⚠️ 个人序列号等已清空,见第四节)
 ```
@@ -35,6 +36,7 @@ EFI/
 | Kext | 版本 | 用途 |
 |---|---|---|
 | Lilu | 1.7.3 | 补丁引擎 |
+| AMFIPass | 1.4.1 | 保持 AMFI 开启并放行 OCLP 显卡补丁, 解决第三方 App 摄像头/麦克风权限问题 |
 | VirtualSMC(含 SMCProcessor/SMCSuperIO/SMCBatteryManager/SMCLightSensor) | 1.3.8 | SMC 模拟 / 电池 / 风扇 / 传感器 |
 | WhateverGreen | 1.7.1 | 显卡修复 |
 | AppleALC | 1.9.8 | 声卡 |
@@ -78,10 +80,11 @@ EFI/
 ### boot-args
 
 ```
-alcid=27 alcverbs=1 amfi_get_out_of_my_way=1 -no_compat_check keepsyms=1 debug=0x100
+alcid=27 alcverbs=1 -no_compat_check keepsyms=1 debug=0x100 -wegbeta -amfipassbeta
 ```
 
-- `amfi_get_out_of_my_way=1` + SIP 全禁(`csr-active-config=03080000`)是 OCLP Root Patch 的前提,勿删。
+- 使用 `AMFIPass.kext` + `-amfipassbeta` 替代了传统的 `amfi_get_out_of_my_way=1`，保持系统原生 AMFI / TCC 权限校验正常运行，彻底解决第三方应用（微信、腾讯会议、Zoom 等）无法弹出摄像头/麦克风权限申请的问题，同时放行 OCLP Haswell 显卡根补丁。
+- `-wegbeta`: 允许 WhateverGreen 在 macOS 15 Sequoia 上正常执行核显接口与补丁逻辑。
 - `-v`(verbose 跑码)已移除;需要调试时临时加回。
 
 ## 四、⚠️ 使用本 EFI 前必做
