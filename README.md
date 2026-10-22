@@ -26,7 +26,7 @@
 EFI/
 ├── BOOT/                     # OpenCore 回落引导
 └── OC/
-    ├── ACPI/                 # 10 个 SSDT(含 SSDT-Disable_GPU_PEG0 屏蔽独显)
+    ├── ACPI/                 # 11 个 SSDT(含 SSDT-Disable_GPU_PEG0 屏蔽独显、SSDT-GPRW 睡眠防秒醒)
     ├── Drivers/              # OpenRuntime / HfsPlus / OpenCanopy / ResetNvramEntry
     ├── Kexts/                # 22 个内核驱动(见下表)
     ├── Resources/            # OpenCanopy 主题资源
@@ -44,7 +44,7 @@ EFI/
 | itlwm | 2.3.0 | Wi-Fi 备用方案(config 中已 **Enabled=false**) |
 | IntelBluetoothFirmware / IntelBTPatcher | 2.5.0 | Intel 蓝牙 |
 | BlueToolFixup | 2.7.3 | macOS 12+ 蓝牙适配 |
-| USBToolBox + UTBDefault | 1.0 | USB 端口定制 |
+| USBToolBox + UTBMap | 1.0 | USB 3.0 (5 Gbps) 物理端口定制(左1右2满速+防15端口截断) |
 | VoodooPS2Controller | 2.3.8 | 触控板 |
 | ECEnabler | 1.0.6 | EC 电池 |
 | AsusSMC | 1.4.1 | 华硕机型电池/EC 特性 |
