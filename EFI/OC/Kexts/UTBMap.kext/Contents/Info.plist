@@ -38,7 +38,7 @@
 			<dict>
 				<key>port-count</key>
 				<data>
-				EQAAAA==
+				FAAAAA==
 				</data>
 				<key>ports</key>
 				<dict>
@@ -100,7 +100,7 @@
 					<key>SS01</key>
 					<dict>
 						<key>#comment</key>
-						<string>Left USB 3.0 Type-A (USB 3.0)</string>
+						<string>USB 3.0 SuperSpeed Port 15</string>
 						<key>UsbConnector</key>
 						<integer>3</integer>
 						<key>port</key>
@@ -111,7 +111,7 @@
 					<key>SS02</key>
 					<dict>
 						<key>#comment</key>
-						<string>Right Back USB 3.0 Type-A (USB 3.0)</string>
+						<string>USB 3.0 SuperSpeed Port 16</string>
 						<key>UsbConnector</key>
 						<integer>3</integer>
 						<key>port</key>
@@ -122,12 +122,45 @@
 					<key>SS03</key>
 					<dict>
 						<key>#comment</key>
-						<string>Right Front USB 3.0 Type-A (USB 3.0)</string>
+						<string>USB 3.0 SuperSpeed Port 17</string>
 						<key>UsbConnector</key>
 						<integer>3</integer>
 						<key>port</key>
 						<data>
 						EQAAAA==
+						</data>
+					</dict>
+					<key>SS04</key>
+					<dict>
+						<key>#comment</key>
+						<string>USB 3.0 SuperSpeed Port 18 (Right Hinge)</string>
+						<key>UsbConnector</key>
+						<integer>3</integer>
+						<key>port</key>
+						<data>
+						EgAAAA==
+						</data>
+					</dict>
+					<key>SS05</key>
+					<dict>
+						<key>#comment</key>
+						<string>USB 3.0 SuperSpeed Port 19</string>
+						<key>UsbConnector</key>
+						<integer>3</integer>
+						<key>port</key>
+						<data>
+						EwAAAA==
+						</data>
+					</dict>
+					<key>SS06</key>
+					<dict>
+						<key>#comment</key>
+						<string>USB 3.0 SuperSpeed Port 20</string>
+						<key>UsbConnector</key>
+						<integer>3</integer>
+						<key>port</key>
+						<data>
+						FAAAAA==
 						</data>
 					</dict>
 				</dict>
